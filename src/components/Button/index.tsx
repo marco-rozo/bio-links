@@ -6,22 +6,29 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
+import { IconType } from "react-icons";
 
-const icons = [
-  VscGithubAlt,
-  IoLogoInstagram,
-  FaLinkedinIn,
-  BsWhatsapp,
-  VscCode,
-];
+export type availableIcons = 'github' | 'instagram' | 'linkedin' | 'whatsapp' | 'vscode'
+
+type IconsProps = {
+  [key in availableIcons]: IconType
+}
+
+const icons: IconsProps = {
+  github: VscGithubAlt,
+  instagram: IoLogoInstagram,
+  linkedin:FaLinkedinIn,
+  whatsapp: BsWhatsapp,
+  vscode: VscCode,
+}
+
 
 interface Props {
   children?: React.ReactNode;
   onClick: () => void;
   title: string;
-  icon?: React.ReactNode;
   link?: string;
-  idx: number;
+  icon: keyof typeof icons; 
 }
 
 const Button: React.FC<Props> = ({
@@ -29,10 +36,10 @@ const Button: React.FC<Props> = ({
   onClick,
   title,
   icon,
-  link,
-  idx
+  link
 }) => {
-  const Icon = icons[idx];
+  const Icon = icons[icon]
+
   return (
     <Center>
       <ButtonStyle

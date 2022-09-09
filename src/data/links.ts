@@ -24,7 +24,7 @@ const links: infoLinks[] = [
     {
         title: "Em Breve",
         url: "#",
-        icon: "code",
+        icon: "vscode",
     }
 ];
 

@@ -30,7 +30,7 @@ function App() {
         links?.map(
           (link, index) => {
             return (
-              <Button key={index} idx={index} onClick={print} title={link.title} link={link.url} icon={link.icon}></Button>
+              <Button key={index} onClick={print} title={link.title} link={link.url} icon={link.icon}></Button>
             )
           }
         )
